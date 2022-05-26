@@ -28,10 +28,11 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("user id: " + socket.id + " was disconnected!");
   });
-
+  console.log(io.allSockets()); 
   socket.on("name", (mgs) => {
     if (mgs === "truong") {
       socket.join("p1");
+      console.log(io.sockets.adapter.rooms);
       let i = 0;
       const clear = setInterval(() => {
         console.log(kichban.k1[i]);
