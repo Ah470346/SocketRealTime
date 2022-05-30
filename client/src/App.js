@@ -1,9 +1,12 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { io, Manager } from "socket.io-client";
 import Home from "./home";
 
-const socket = io("");
+const manager = new Manager("");
+const socket = manager.socket("/"); // main namespace
+const adminSocket = manager.socket("/admin"); // admin namespace
+// const socket = io("");
 
 function App() {
   const [name, setName] = useState("");

@@ -8,7 +8,6 @@ process.on('message', function(json)
     dem++;
     if(dem === 5){
       clearInterval(clear);
-      process.send("kill");
       process.exit();
     }
   },5000) 
